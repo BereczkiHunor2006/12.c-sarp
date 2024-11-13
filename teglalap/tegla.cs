@@ -8,7 +8,7 @@ namespace teglalap
 {
     class tegla
     {
-        private double a, b, kerulet, terulet;
+        protected double a, b, kerulet, terulet;
         public tegla() { }
         public tegla(double m)
         {

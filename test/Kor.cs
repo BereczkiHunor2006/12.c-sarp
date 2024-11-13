@@ -12,7 +12,7 @@ namespace KorHasab
         // Az osztály feladata a sugárból kiszámítja a kör területét és kerületét.
 
         // Osztályváltozók
-        private double sugar, terulet, kerulet;
+        protected double sugar, terulet, kerulet;
         //Konstruktorok
         public Kor(){
         
