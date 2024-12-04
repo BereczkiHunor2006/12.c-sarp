@@ -22,6 +22,7 @@ namespace HaromszogTipusaOOP
         }
         public bool DerekszoguHaromszog()
         {
+
             if (!ErvenyesHaromszog()) return false;
             int[] oldalak = {a, b, c};
             Array.Sort(oldalak);
@@ -45,19 +46,33 @@ namespace HaromszogTipusaOOP
         }
         static void Main(string[] args)
         {
-            HTipus haromszog1 = new HTipus(3, 4, 5);
-            Console.WriteLine($"Érvényes Háromszög: {haromszog1.ErvenyesHaromszog()}");
-            Console.WriteLine($"Érvényes Háromszög: {haromszog1.DerekszoguHaromszog()}");
-            Console.WriteLine($"Érvényes Háromszög: {haromszog1.EgyenloszaruHaromszog()}");
-            Console.WriteLine($"Érvényes Háromszög: {haromszog1.EgyenloOldaluHaromszog()}");
-            Console.WriteLine($"Terület: {haromszog1.Terulet()}");
+            try
+            {
+                HTipus haromszog1 = new HTipus(3, 4, 5);
+                Console.WriteLine($"Érvényes Háromszög: {haromszog1.ErvenyesHaromszog()}");
+                Console.WriteLine($"Érvényes Háromszög: {haromszog1.DerekszoguHaromszog()}");
+                Console.WriteLine($"Érvényes Háromszög: {haromszog1.EgyenloszaruHaromszog()}");
+                Console.WriteLine($"Érvényes Háromszög: {haromszog1.EgyenloOldaluHaromszog()}");
+                Console.WriteLine($"Terület: {haromszog1.Terulet()}");
+            }
+            catch
+            {
+                Console.WriteLine("Hiba!!!");
+            }
 
-            HTipus haromszog2 = new HTipus(5,5,5);
-            Console.WriteLine($"Érvényes Háromszög: {haromszog2.ErvenyesHaromszog()}");
-            Console.WriteLine($"Érvényes Háromszög: {haromszog2.DerekszoguHaromszog()}");
-            Console.WriteLine($"Érvényes Háromszög: {haromszog2.EgyenloszaruHaromszog()}");
-            Console.WriteLine($"Érvényes Háromszög: {haromszog2.EgyenloOldaluHaromszog()}");
-            Console.WriteLine($"Terület: {haromszog2.Terulet()}");
+            try
+            {
+                HTipus haromszog2 = new HTipus(5, 5, 5);
+                Console.WriteLine($"Érvényes Háromszög: {haromszog2.ErvenyesHaromszog()}");
+                Console.WriteLine($"Érvényes Háromszög: {haromszog2.DerekszoguHaromszog()}");
+                Console.WriteLine($"Érvényes Háromszög: {haromszog2.EgyenloszaruHaromszog()}");
+                Console.WriteLine($"Érvényes Háromszög: {haromszog2.EgyenloOldaluHaromszog()}");
+                Console.WriteLine($"Terület: {haromszog2.Terulet()}");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
 
             Console.ReadLine();
         }
