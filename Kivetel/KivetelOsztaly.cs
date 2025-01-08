@@ -26,6 +26,10 @@ namespace Kivetel
             {
                 int szam = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("A beírt szám: {0}", szam);
+                if (szam == 0)
+                {
+                    throw new ArgumentException("A beírt szám nem lehet nulla.");
+                }
             }
             catch
             {
@@ -40,7 +44,7 @@ namespace Kivetel
                 int szam = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine($"A beírt szám: {szam}");
             }
-            catch(Exception e)
+            catch(FormatException e)
             {
                 Console.WriteLine(e.ToString());
             }

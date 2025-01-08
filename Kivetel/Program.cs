@@ -12,8 +12,8 @@ namespace Kivetel
         {
             // Osztály példányosítás
             KivetelOsztaly k = new KivetelOsztaly();
-
-            k.KivKezAlt();
+            /*k.KivKezNincs();
+            k.KivKezAlt();*/
             k.KivKezOs();
         }
     }
