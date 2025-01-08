@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kivetel", "Kivetel\Kivetel.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagasOOP", "MagasOOP\MagasOOP.csproj", "{A57DCFB9-A563-42C6-99F4-4DB0F63E9845}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negyszog", "Negyszog\Negyszog.csproj", "{AFCE6087-9833-41B4-9FD7-FA5D83157398}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A57DCFB9-A563-42C6-99F4-4DB0F63E9845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A57DCFB9-A563-42C6-99F4-4DB0F63E9845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A57DCFB9-A563-42C6-99F4-4DB0F63E9845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCE6087-9833-41B4-9FD7-FA5D83157398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCE6087-9833-41B4-9FD7-FA5D83157398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCE6087-9833-41B4-9FD7-FA5D83157398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCE6087-9833-41B4-9FD7-FA5D83157398}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
