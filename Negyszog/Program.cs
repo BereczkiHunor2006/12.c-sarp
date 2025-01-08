@@ -93,6 +93,8 @@ namespace Negyszog
             // SetOldal2 metódus használata
             negyszog3.SetOldal2(5, 7);
             Console.WriteLine($"Téglalap új területe: {negyszog3.GetTerulet()}, kerülete: {negyszog3.GetKerulet()}");
+
+            Console.ReadKey();
         }
     }
 }
