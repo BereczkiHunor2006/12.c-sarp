@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negyszog", "Negyszog\Negysz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoList", "AutoList\AutoList.csproj", "{0199A3F1-5D85-4395-ABE4-F15A264BB446}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaratList", "BaratList\BaratList.csproj", "{FE1AD528-3307-49B7-A470-F8993D870259}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{0199A3F1-5D85-4395-ABE4-F15A264BB446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0199A3F1-5D85-4395-ABE4-F15A264BB446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0199A3F1-5D85-4395-ABE4-F15A264BB446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE1AD528-3307-49B7-A470-F8993D870259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE1AD528-3307-49B7-A470-F8993D870259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE1AD528-3307-49B7-A470-F8993D870259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE1AD528-3307-49B7-A470-F8993D870259}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
