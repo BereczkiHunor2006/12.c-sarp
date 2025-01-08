@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MagasOOP
 {
-    public class Magassag
+    public class MagasOOP
     {
         public double AlsoTav { get; set; }
 
         public double TetoTav { get; set; }
 
-        public Magassag(double alsotav, double tetotav)
+        public MagasOOP(double alsotav, double tetotav)
         {
             AlsoTav = alsotav;
             TetoTav = tetotav;
@@ -29,13 +29,13 @@ namespace MagasOOP
     }
     class Program
     {
+        
         static void Main(string[] args)
         {
-            Magassag magas = new Magassag(Console.Write("Add meg az alját: "), Console.Write("Add meg a tetejét: ");
+
+            MagasOOP magas = new MagasOOP(100,200);
             magas.KiirMagassag();
             Console.ReadKey();
-
         }
     }
 }
-
