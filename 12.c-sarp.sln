@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoList", "AutoList\AutoLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaratList", "BaratList\BaratList.csproj", "{FE1AD528-3307-49B7-A470-F8993D870259}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliformOOP", "PoliformOOP\PoliformOOP.csproj", "{7E865459-861B-481B-B29B-791DE45D0AC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetterSetter", "GetterSetter\GetterSetter.csproj", "{5FC75E70-9A47-4FBB-A38A-A999DCC45E2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{FE1AD528-3307-49B7-A470-F8993D870259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE1AD528-3307-49B7-A470-F8993D870259}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE1AD528-3307-49B7-A470-F8993D870259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E865459-861B-481B-B29B-791DE45D0AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E865459-861B-481B-B29B-791DE45D0AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E865459-861B-481B-B29B-791DE45D0AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E865459-861B-481B-B29B-791DE45D0AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FC75E70-9A47-4FBB-A38A-A999DCC45E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FC75E70-9A47-4FBB-A38A-A999DCC45E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FC75E70-9A47-4FBB-A38A-A999DCC45E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FC75E70-9A47-4FBB-A38A-A999DCC45E2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
