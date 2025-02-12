@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OroklesProgram", "OroklesPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstract", "Abstract\Abstract.csproj", "{A08DD516-0C39-4F47-BC97-C6253CBA7051}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElsoForm", "ElsoForm\ElsoForm.csproj", "{FE6E0796-FF1D-408A-A620-25020C8828E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{A08DD516-0C39-4F47-BC97-C6253CBA7051}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08DD516-0C39-4F47-BC97-C6253CBA7051}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A08DD516-0C39-4F47-BC97-C6253CBA7051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
