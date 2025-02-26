@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33927.289
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KorHasab", "test\KorHasab.csproj", "{5F70B7BF-8092-47F5-80FB-176361FC377D}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstract", "Abstract\Abstract.csproj", "{A08DD516-0C39-4F47-BC97-C6253CBA7051}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElsoForm", "ElsoForm\ElsoForm.csproj", "{FE6E0796-FF1D-408A-A620-25020C8828E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19.4.FormMozg", "..\..\..\Downloads\19.04.FormMozg\19.04.FormMozg\19.4.FormMozg.csproj", "{DFA23F8C-D32C-4849-9C2C-A2D3AC46A6AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE6E0796-FF1D-408A-A620-25020C8828E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA23F8C-D32C-4849-9C2C-A2D3AC46A6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA23F8C-D32C-4849-9C2C-A2D3AC46A6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA23F8C-D32C-4849-9C2C-A2D3AC46A6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA23F8C-D32C-4849-9C2C-A2D3AC46A6AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
