@@ -25,6 +25,25 @@ namespace MySQL1
         #region Üzenet szövegek
         private string openSikeres = "A kapcsolódás az adatbázishoz sikeres!", openNemSikeres = "A kapcsolódás az adatbázishoz sikertelen!", cantoRead = "Az olvasás megkezdődhet!", closedDB = "Az adatbázis bezárva!";
         #endregion Üzenet szövegek
+
+        #region A Form és az adatbázis állapotai
+        private enum FormState
+        {
+            Closed, // Zárva, nincs csatlakoztatva
+            Opened, // Adabázishoz csatlakozva, de olvasásra nincs megnyitva
+            Reading, // Olvasás közben
+            EditInsert, // Beszúrás adatainak beírása közben
+            EditUpdate, // Rekord szerkesztése közben
+        }
+        private FormState formState = FormState.Closed;
+        #endregion A Form és az adatbázis állapotai
+
+        #region Gomb feliratai
+        private string insBasic = "Beszúrás";
+        private string insEdit = "Szerkesztés vége";
+        private string updBasic = "Módosítás";
+        private string updEdit = "Módosítás vége";
+        #endregion Gomb feliratai
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +54,7 @@ namespace MySQL1
             mysqlConn.Close();
             MessageBox.Show(closedDB);
 
-            //formState = FormState.Closed;
+            formState = FormState.Closed;
             //buttonSwitch(formState);
         }
 
@@ -62,8 +81,8 @@ namespace MySQL1
                 mysqlConn.Open();
                 MessageBox.Show(openSikeres);
 
-                /*var formState = FormState.Opened;
-                buttonSwitch(formState);*/
+                formState = FormState.Opened;
+                //buttonSwitch(formState);
             }
             catch(Exception ex)
             {
