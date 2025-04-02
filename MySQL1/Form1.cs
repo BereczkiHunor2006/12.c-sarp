@@ -15,7 +15,7 @@ using System.IO;
 namespace MySQL1
 {
     public partial class Form1 : Form
-   {
+    {
         //Változók definiálása
         #region Kapcsolat properties
         private MySqlConnection mysqlConn;
@@ -25,6 +25,15 @@ namespace MySQL1
         #region Üzenet szövegek
         private string openSikeres = "A kapcsolódás az adatbázishoz sikeres!", openNemSikeres = "A kapcsolódás az adatbázishoz sikertelen!", cantoRead = "Az olvasás megkezdődhet!", closedDB = "Az adatbázis bezárva!";
         #endregion Üzenet szövegek
+
+
+        #region Tárolt eljárások
+        private string userTeljesLista = "userTeljesLista";
+        private string userInsert = "userInsert";
+        private string userUpdate = "userUpdate";
+        private string userDelete = "userDelete";
+        #endregion Tárolt eljárások
+
 
         #region A Form és az adatbázis állapotai
         private enum FormState
@@ -44,6 +53,89 @@ namespace MySQL1
         private string updBasic = "Módosítás";
         private string updEdit = "Módosítás vége";
         #endregion Gomb feliratai
+
+        #region Gombok elérhetőségének beállításai
+        private void buttonSwitch(FormState fs)
+        {
+            switch (fs)
+            {
+                case FormState.Closed:
+                    button2.Enabled = true; //button2 == kapcsolódás/connection
+                    button3.Enabled = false; //button3 == Megnyitás/open adatbázis
+                    button4.Enabled = false; //button4 == Olvasás/Read
+                    button5.Enabled = false; //button5 == Beszúrás/Insert
+                    button6.Enabled = false; //button6 == Update/Módosítások
+                    button7.Enabled = false; //button7 == Törlés/Delete
+                    button1.Enabled = false; //button1 == Kapcsolat bontása
+                    break;
+                case FormState.Opened:
+                    button2.Enabled = false;
+                    button3.Enabled = true;
+                    button4.Enabled = false;
+                    button5.Enabled = true;
+                    button6.Enabled = true;
+                    button7.Enabled = true;
+                    button1.Enabled = true;
+
+                    textBox1.Enabled = false; //textBox1 == Id/Azonosító
+                    textBox2.Enabled = false; //textBox2 == Name/név
+                    textBox3.Enabled = false; //textBox3 == Password/Jelszó
+                    checkBox1.Enabled = false; //checkBox1 == Admin?
+
+                    //Gomb feliratok
+                    button5.Text = insBasic;
+                    button6.Text = updBasic;
+                    break;
+                case FormState.Reading:
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = true;
+                    button5.Enabled = true;
+                    button6.Enabled = true;
+                    button7.Enabled = true;
+                    button1.Enabled = true;
+                    break;
+                case FormState.EditInsert:
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                    button5.Enabled = true;
+                    button6.Enabled = false;
+                    button7.Enabled = false;
+                    button1.Enabled = true;
+
+                    //Beviteli mezők elérhetősége
+                    textBox2.Enabled = true;
+                    textBox3.Enabled = true;
+                    checkBox1.Enabled = true;
+
+                    //Beviteli mezők ürítése
+                    textBox2.Text = String.Empty;
+                    textBox3.Text = String.Empty;
+                    checkBox1.Checked = false;
+
+                    //Gomb feliratok
+                    button5.Text = insEdit;
+                    break;
+                case FormState.EditUpdate:
+                    button2.Enabled = false;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                    button5.Enabled = false;
+                    button6.Enabled = true;
+                    button7.Enabled = false;
+                    button1.Enabled = true;
+
+                    textBox2.Enabled = true;
+                    textBox3.Enabled = true;
+                    checkBox1.Enabled = true;
+
+                    //Gomb feliratok
+                    button6.Text = updEdit;
+                    break;
+            }
+        }
+        #endregion Gombok elérhetőségének beállításai
         public Form1()
         {
             InitializeComponent();
@@ -55,13 +147,15 @@ namespace MySQL1
             MessageBox.Show(closedDB);
 
             formState = FormState.Closed;
-            //buttonSwitch(formState);
+            buttonSwitch(formState);
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -82,12 +176,164 @@ namespace MySQL1
                 MessageBox.Show(openSikeres);
 
                 formState = FormState.Opened;
-                //buttonSwitch(formState);
+                buttonSwitch(formState);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"{openNemSikeres} \n {ex.Message}");
             }
         }
+
+
+        #region Adatbázis megnyitása
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (MySqlCommand prancs = new MySqlCommand(userTeljesLista, mysqlConn))
+            {
+                prancs.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    //Olvasás a táblából
+                    mysqlDr = prancs.ExecuteReader();
+
+                    MessageBox.Show(cantoRead);
+
+                    formState = FormState.Reading;
+                    buttonSwitch(formState);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        #endregion Adatbázis megnyitása
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            NextUser();
+        }
+
+        
+        #region A következő rekord beolvasása
+        private void NextUser()
+        {
+            // A következő rekord olvasása
+            mysqlDr.Read();
+            textBox1.Text = mysqlDr[0].ToString().Trim();
+            textBox2.Text = mysqlDr[1].ToString().Trim();
+            textBox3.Text = mysqlDr[2].ToString().Trim();
+            checkBox1.Checked = (bool)mysqlDr[3];
+        }
+        #endregion A következő rekord olvasása
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            switch (formState)
+            {
+                case FormState.Opened:
+                    formState = FormState.EditInsert;
+                    buttonSwitch(formState);
+                    break;
+                case FormState.Reading:
+                    mysqlDr.Close();
+                    formState = FormState.EditInsert;
+                    buttonSwitch(formState);
+                    break;
+                case FormState.EditInsert:
+                    InsertUser(textBox2.Text, textBox3.Text, (checkBox1.Checked) ? 1 : 0);
+                    formState = FormState.Opened;
+                    buttonSwitch(formState);
+                    break;
+            }
+        }
+
+        #region Rekord beszúrása
+        private void InsertUser(string username, string password, int admin)
+        {
+            using (MySqlCommand sqlComm = new MySqlCommand(userInsert, mysqlConn))
+            {
+                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                //Paraméterek beállítása
+                MySqlParameter p = new MySqlParameter();
+                p.ParameterName = "username";
+                p.Value = username;
+                p.MySqlDbType = MySqlDbType.String;
+                sqlComm.Parameters.Add(p);
+
+                sqlComm.Parameters.AddWithValue("password", password);
+                sqlComm.Parameters.AddWithValue("admin", admin);
+
+                try
+                {
+                    //Olvasás a táblából
+                    sqlComm.ExecuteNonQuery();
+                    MessageBox.Show("A rekord felvétele sikeres.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            #endregion Rekord beszúrása
+        }
+
+        #region Rekord módosítása
+        private void button6_Click(object sender, EventArgs e)
+        {
+            switch (formState)
+            {
+                case FormState.Opened:
+                    formState = FormState.EditUpdate;
+                    buttonSwitch(formState);
+                    break;
+                case FormState.Reading:
+                    mysqlDr.Close();
+                    formState = FormState.EditUpdate;
+                    buttonSwitch(formState);
+                    break;
+                case FormState.EditUpdate:
+                    UpdateUser(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, (checkBox1.Checked) ? 1 : 0);
+                    formState = FormState.Opened;
+                    buttonSwitch(formState);
+                    break;
+                    
+            }
+        }
+        private void UpdateUser(int id, string username, string password, int admin)
+        {
+            using (MySqlCommand cmd = new MySqlCommand(userUpdate, mysqlConn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Paraméterek beállítása
+                cmd.Parameters.AddWithValue("id", id);
+
+                MySqlParameter p = new MySqlParameter();
+                p.ParameterName = "username";
+                p.Value = username;
+                p.MySqlDbType = MySqlDbType.String;
+                cmd.Parameters.Add(p);
+
+                cmd.Parameters.AddWithValue("password", password);
+                cmd.Parameters.AddWithValue("admin", admin);
+
+                try
+                {
+                    //Olvasás a táblából
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("A rekord módosítása sikeres.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        #endregion Rekord módosítása
     }
 }
