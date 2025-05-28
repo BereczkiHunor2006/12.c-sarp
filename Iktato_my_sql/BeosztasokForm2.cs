@@ -16,5 +16,10 @@ namespace Iktato_my_sql
         {
             InitializeComponent();
         }
+
+        private void BeosztasokForm2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

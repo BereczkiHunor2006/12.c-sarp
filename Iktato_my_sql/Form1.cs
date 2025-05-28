@@ -24,11 +24,12 @@ namespace Iktato_my_sql
         public Form1()
         {
             InitializeComponent();
-            InitializeDatabase();
+            /*InitializeDatabase();
             InitializeDataGridView();
             InitializeBindingNavigator();
             connection.Close();
             beosztasokForm2 = new BeosztasokForm2(DBConnection.GetConnectionString_2("MyDBConnection"));
+            */
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace DBConnection
 {
@@ -21,7 +22,7 @@ namespace DBConnection
 
                 return connectionString;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Hiba történt: {ex.Message}");
                 return "";
