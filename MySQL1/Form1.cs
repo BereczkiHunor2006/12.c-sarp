@@ -251,6 +251,8 @@ namespace MySQL1
             }
         }
 
+        
+
         #region Rekord beszúrása
         private void InsertUser(string username, string password, int admin)
         {
@@ -304,14 +306,17 @@ namespace MySQL1
                     
             }
         }
-        private void UpdateUser(int id, string username, string password, int admin)
+
+        
+
+        private void UpdateUser(int pID, string username, string password, int admin)
         {
             using (MySqlCommand cmd = new MySqlCommand(userUpdate, mysqlConn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Paraméterek beállítása
-                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("pID", pID);
 
                 MySqlParameter p = new MySqlParameter();
                 p.ParameterName = "username";
@@ -335,5 +340,52 @@ namespace MySQL1
             }
         }
         #endregion Rekord módosítása
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // A form állapotának beállítása
+            switch (formState)
+            {
+                case FormState.Reading:
+                    break;
+            }
+            if(formState == FormState.Reading)
+            {
+                mysqlDr.Close(); // Bezárom a DataReader típusú objektumot, mert az új művelethez előlről kell olvasni az adatbázist.
+                formState = FormState.Opened;
+                buttonSwitch(formState);
+            }
+            DeleteUser(Convert.ToInt32(textBox1.Text));
+        }
+        private void DeleteUser(int pID)
+        {
+            using (MySqlCommand sqlComm = new MySqlCommand(userDelete, mysqlConn))
+            {
+                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                //Paraméterek beállítása
+                sqlComm.Parameters.AddWithValue("pID", pID);
+
+                try
+                {
+                    //Törlés a táblából
+                    sqlComm.ExecuteNonQuery();
+                    MessageBox.Show("A rekord törlése sikeres.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Ha még nincs bezárva az adatbázis, akkor zárja be.
+            if (mysqlConn != null)
+            {
+                mysqlConn.Close();
+                MessageBox.Show(closedDB);
+            }
+        }
     }
 }
