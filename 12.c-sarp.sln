@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iktato_my_sql", "Iktato_my_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBConnection", "DBConnection\DBConnection.csproj", "{7AB1EF50-944A-444D-984C-D08BAAD014E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IktatoMySql", "..\Iktato\IktatoMySql\IktatoMySql\IktatoMySql.csproj", "{0EDB0705-6610-46BB-9473-334D692934C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{7AB1EF50-944A-444D-984C-D08BAAD014E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB1EF50-944A-444D-984C-D08BAAD014E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AB1EF50-944A-444D-984C-D08BAAD014E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDB0705-6610-46BB-9473-334D692934C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDB0705-6610-46BB-9473-334D692934C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDB0705-6610-46BB-9473-334D692934C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDB0705-6610-46BB-9473-334D692934C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
